@@ -49,10 +49,10 @@
 					<testSourceDirectories>
 						<testSourceDirectory>src/test/clojure</testSourceDirectory>
 					</testSourceDirectories>
-					<namespaces>
-						<namespace>net.billforward</namespace>
-					</namespaces>
-					<!--<temporaryOutputDirectory>true</temporaryOutputDirectory>-->
+					<!--<namespaces>-->
+						<!--<namespace>net.billforward</namespace>-->
+					<!--</namespaces>-->
+					<temporaryOutputDirectory>true</temporaryOutputDirectory>
 					<!--<copyAllCompiledNamespaces>true</copyAllCompiledNamespaces>-->
 					<!--<copyDeclaredNamespaceOnly>true</copyDeclaredNamespaceOnly>-->
 					<!--<compileDeclaredNamespaceOnly>true</compileDeclaredNamespaceOnly>-->

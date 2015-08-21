@@ -40,7 +40,9 @@ public class AppTest
     {
 //        IFn require = Clojure.var("clojure.core", "require");
 //        require.invoke(Clojure.read("net.billforward.likewhatever"));
-
+        String hello = Whatever.hello();
+        assertNotNull(hello);
+        assertFalse(hello.isEmpty());
 
         assertTrue( true );
     }
