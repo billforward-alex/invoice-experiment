@@ -52,7 +52,7 @@
 					<!--<namespaces>-->
 						<!--<namespace>net.billforward</namespace>-->
 					<!--</namespaces>-->
-					<temporaryOutputDirectory>true</temporaryOutputDirectory>
+					<!--<temporaryOutputDirectory>true</temporaryOutputDirectory>-->
 					<!--<copyAllCompiledNamespaces>true</copyAllCompiledNamespaces>-->
 					<!--<copyDeclaredNamespaceOnly>true</copyDeclaredNamespaceOnly>-->
 					<!--<compileDeclaredNamespaceOnly>true</compileDeclaredNamespaceOnly>-->
@@ -76,20 +76,20 @@
 						</goals>
 					</execution>
 
-					<execution>
-						<id>compile</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
+					<!--<execution>-->
+						<!--<id>compile</id>-->
+						<!--<phase>compile</phase>-->
+						<!--<goals>-->
+							<!--<goal>compile</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
+					<!--<execution>-->
+						<!--<id>test</id>-->
+						<!--<phase>test</phase>-->
+						<!--<goals>-->
+							<!--<goal>test</goal>-->
+						<!--</goals>-->
+					<!--</execution>-->
 				</executions>
 			</plugin>
 		</plugins>
