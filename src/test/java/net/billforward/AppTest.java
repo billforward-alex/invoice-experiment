@@ -36,8 +36,7 @@ public class AppTest
     public void testApp()
     {
         IFn require = Clojure.var("clojure.core", "require");
-        Object whatever = require.invoke(Clojure.read("net.billforward"));
-        assertNotNull(whatever);
+        require.invoke(Clojure.read("net.billforward.likewhatever"));
 
         assertTrue( true );
     }

@@ -30,6 +30,8 @@
 	</dependencies>
 
 	<build>
+		<!--<sourceDirectory>src/main/clojure</sourceDirectory>-->
+		<!--<testSourceDirectory>src/test/clojure</testSourceDirectory>-->
 		<plugins>
 			<plugin>
 				<!-- This plugin should be included in the root POM, plus any sub-projects recruiting Clojure -->
@@ -57,6 +59,13 @@
 						<phase>test</phase>
 						<goals>
 							<goal>test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>compile-clojure</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
 						</goals>
 					</execution>
 				</executions>

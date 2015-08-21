@@ -1,4 +1,4 @@
-(ns billforward
+(ns net.billforward.likewhatever
   (:require [clojure.test :refer :all])
   )
 
