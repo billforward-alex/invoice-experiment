@@ -1,7 +1,8 @@
 (ns net.billforward.Whatever
 	(:gen-class
-		:methods [#^{:static true} [hello [] String]]))
+		:methods [#^{:static true} [hello [] String]])
+	(:use [hiccup.core]))
 (println "Hello World 1")
-(defn -hello [] "Hello world")
+(defn -hello [] (html [:span {:class "foo"} "bar"]))
 
 (defn -main [] (println "Hello from Clojure -main." ))
