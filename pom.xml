@@ -49,7 +49,14 @@
 					<testSourceDirectories>
 						<testSourceDirectory>src/test/clojure</testSourceDirectory>
 					</testSourceDirectories>
-					<temporaryOutputDirectory>true</temporaryOutputDirectory>
+					<namespaces>
+						<namespace>net.billforward</namespace>
+					</namespaces>
+					<!--<temporaryOutputDirectory>true</temporaryOutputDirectory>-->
+					<!--<copyAllCompiledNamespaces>true</copyAllCompiledNamespaces>-->
+					<!--<copyDeclaredNamespaceOnly>true</copyDeclaredNamespaceOnly>-->
+					<!--<compileDeclaredNamespaceOnly>true</compileDeclaredNamespaceOnly>-->
+					<!--<testDeclaredNamespaceOnly>true</testDeclaredNamespaceOnly>-->
 				</configuration>
 
 				<executions>
@@ -86,5 +93,10 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<!--<resources>-->
+			<!--<resource>-->
+				<!--<directory>src/main/clojure</directory>-->
+			<!--</resource>-->
+		<!--</resources>-->
 	</build>
 </project>

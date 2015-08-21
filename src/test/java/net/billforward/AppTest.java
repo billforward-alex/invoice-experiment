@@ -1,10 +1,13 @@
 package net.billforward;
 
+
+
 import clojure.java.api.Clojure;
 import clojure.lang.IFn;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+//import net.billforward.likewhatever;
 
 /**
  * Unit test for simple App.
@@ -35,8 +38,9 @@ public class AppTest
      */
     public void testApp()
     {
-        IFn require = Clojure.var("clojure.core", "require");
-        require.invoke(Clojure.read("net.billforward.likewhatever"));
+//        IFn require = Clojure.var("clojure.core", "require");
+//        require.invoke(Clojure.read("net.billforward.likewhatever"));
+
 
         assertTrue( true );
     }
