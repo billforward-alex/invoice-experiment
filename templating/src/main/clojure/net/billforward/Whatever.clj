@@ -1,7 +1,6 @@
 (ns net.billforward.Whatever
-	(:import '(net.billforward Invoicey))
 	(:gen-class
-		:methods [#^{:static true} [hello [Invoicey] String]])
+		:methods [#^{:static true} [hello [net.billforward.Invoicey] String]])
 	(:use [hiccup.core])
 	)
 (println "Hello World 1")
