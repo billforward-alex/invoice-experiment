@@ -18,6 +18,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="shared" />
+    <orderEntry type="module" module-name="templating" />
+    <orderEntry type="library" name="Maven: org.clojure:clojure:1.6.0" level="project" />
+    <orderEntry type="library" name="Maven: hiccup:hiccup:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: io.restx:restx-core:0.34" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.3" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.3" level="project" />
