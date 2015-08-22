@@ -33,6 +33,8 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        String hello = Whatever.hello();
+        assertNotNull(hello);
+        assertFalse(hello.isEmpty());
     }
 }
