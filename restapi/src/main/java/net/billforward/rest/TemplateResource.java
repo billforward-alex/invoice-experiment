@@ -7,22 +7,29 @@ import restx.factory.Factory;
 import javax.inject.Inject;
 import java.io.IOException;
 
+import net.billforward.*;
+
 /**
  * Created by birch on 22/08/2015.
  */
 @Component
 public class TemplateResource extends StdRoute {
-    private final Factory factory;
+//    private final Factory factory;
 
     @Inject
     public TemplateResource(Factory factory) {
-        super("FactoryRoute", new StdRestxRequestMatcher("GET", "/@/factory"));
-        this.factory = factory;
+//        super("FactoryRoute", new StdRestxRequestMatcher("GET", "/@/factory"));
+        super("TemplateRoute", new StdRestxRequestMatcher("GET", "/template"));
+//        this.factory = factory;
     }
 
     @Override
     public void handle(RestxRequestMatch match, RestxRequest req, RestxResponse resp, RestxContext ctx) throws IOException {
         resp.setContentType("text/html");
-        resp.getWriter().println(factory.dump());
+
+        String content = Whatever.hello();
+
+//        resp.getWriter().println(factory.dump());
+        resp.getWriter().println(content);
     }
 }
