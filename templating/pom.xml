@@ -11,8 +11,11 @@
 	<groupId>net.billforward</groupId>
 	<artifactId>templating</artifactId>
 	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>../grunter</module>
+	</modules>
 
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
 
 	<name>templating</name>
 	<url>http://maven.apache.org</url>

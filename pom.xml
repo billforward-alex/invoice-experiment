@@ -9,6 +9,7 @@
 		<module>shared</module>
 		<module>restapi</module>
 		<module>templating</module>
+		<module>grunter</module>
 	</modules>
 	<packaging>pom</packaging>
 
