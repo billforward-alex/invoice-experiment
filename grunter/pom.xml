@@ -29,7 +29,7 @@
 				<version>1.5.0</version>
 				<configuration>
 					<!-- relative to src/main/webapp/, default: static -->
-					<jsSourceDirectory>path_to_js_project</jsSourceDirectory>
+					<jsSourceDirectory>uncsser</jsSourceDirectory>
 
 					<!-- example options usage to get verbose output in logs -->
 					<gruntOptions>
@@ -43,7 +43,7 @@
 
 					<!-- example options usage to filter variables in given resource -->
 					<filteredResources>
-						<filteredResource>maven-properties.json</filteredResource>
+						<!--<filteredResource>maven-properties.json</filteredResource>-->
 					</filteredResources>
 
 				</configuration>
@@ -53,7 +53,7 @@
 							<goal>create-resources</goal>
 							<goal>npm</goal>
 							<!-- or npm-offline if npm failure is not an option -->
-							<goal>bower</goal>
+							<!--<goal>bower</goal>-->
 							<goal>grunt</goal>
 						</goals>
 					</execution>
