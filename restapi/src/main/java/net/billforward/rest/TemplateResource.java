@@ -27,7 +27,10 @@ public class TemplateResource extends StdRoute {
     public void handle(RestxRequestMatch match, RestxRequest req, RestxResponse resp, RestxContext ctx) throws IOException {
         resp.setContentType("text/html");
 
-        String content = Whatever.hello();
+        Invoicey invoice = new Invoicey();
+        invoice.setId("Sup dawg");
+
+        String content = Whatever.hello(invoice);
 
 //        resp.getWriter().println(factory.dump());
         resp.getWriter().println(content);
