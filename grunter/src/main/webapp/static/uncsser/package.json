@@ -1,0 +1,16 @@
+{
+  "name": "uncsser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-maven": "^1.2.0",
+    "uncss": "^0.12.1"
+  }
+}
