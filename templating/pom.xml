@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>invoice-templates</artifactId>
+		<groupId>net.billforward</groupId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.billforward</groupId>
+	<artifactId>templating</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<packaging>jar</packaging>
+
+	<name>templating</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>clojars.org</id>
+			<url>http://clojars.org/repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.billforward</groupId>
+			<artifactId>shared</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<!--<dependency>-->
+			<!--<groupId>junit</groupId>-->
+			<!--<artifactId>junit</artifactId>-->
+			<!--<version>3.8.1</version>-->
+			<!--<scope>test</scope>-->
+		<!--</dependency>-->
+
+		<dependency>
+			<!-- This dependency should be included in the root POM -->
+			<groupId>org.clojure</groupId>
+			<artifactId>clojure</artifactId>
+			<version>1.6.0</version>
+		</dependency>
+		<dependency>
+			<groupId>hiccup</groupId>
+			<artifactId>hiccup</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<!--<sourceDirectory>src/main/clojure</sourceDirectory>-->
+		<!--<testSourceDirectory>src/test/clojure</testSourceDirectory>-->
+		<plugins>
+			<plugin>
+				<!-- This plugin should be included in the root POM, plus any sub-projects recruiting Clojure -->
+				<groupId>com.theoryinpractise</groupId>
+				<!-- https://github.com/talios/clojure-maven-plugin -->
+				<artifactId>clojure-maven-plugin</artifactId>
+				<version>1.7.1</version>
+				<extensions>true</extensions>
+
+				<configuration>
+					<!-- This config should be included in any sub-projects recruiting Clojure -->
+					<sourceDirectories>
+						<sourceDirectory>src/main/clojure</sourceDirectory>
+					</sourceDirectories>
+					<testSourceDirectories>
+						<testSourceDirectory>src/test/clojure</testSourceDirectory>
+					</testSourceDirectories>
+					<!--<namespaces>-->
+					<!--<namespace>net.billforward</namespace>-->
+					<!--</namespaces>-->
+					<!--<temporaryOutputDirectory>true</temporaryOutputDirectory>-->
+					<!--<copyAllCompiledNamespaces>true</copyAllCompiledNamespaces>-->
+					<!--<copyDeclaredNamespaceOnly>true</copyDeclaredNamespaceOnly>-->
+					<!--<compileDeclaredNamespaceOnly>true</compileDeclaredNamespaceOnly>-->
+					<!--<testDeclaredNamespaceOnly>true</testDeclaredNamespaceOnly>-->
+				</configuration>
+
+				<executions>
+					<!-- ... -->
+					<execution>
+						<id>test-clojure</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>compile-clojure</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+
+					<!--<execution>-->
+					<!--<id>compile</id>-->
+					<!--<phase>compile</phase>-->
+					<!--<goals>-->
+					<!--<goal>compile</goal>-->
+					<!--</goals>-->
+					<!--</execution>-->
+					<!--<execution>-->
+					<!--<id>test</id>-->
+					<!--<phase>test</phase>-->
+					<!--<goals>-->
+					<!--<goal>test</goal>-->
+					<!--</goals>-->
+					<!--</execution>-->
+				</executions>
+			</plugin>
+		</plugins>
+		<!--<resources>-->
+		<!--<resource>-->
+		<!--<directory>src/main/clojure</directory>-->
+		<!--</resource>-->
+		<!--</resources>-->
+	</build>
+</project>

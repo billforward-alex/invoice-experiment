@@ -33,7 +33,10 @@ public class AppTest
      */
     public void testApp()
     {
-        String hello = Whatever.hello();
+        Invoicey invoice = new Invoicey();
+        invoice.setId("Sup dawg");
+
+        String hello = Whatever.hello(invoice);
         assertNotNull(hello);
         assertFalse(hello.isEmpty());
     }
