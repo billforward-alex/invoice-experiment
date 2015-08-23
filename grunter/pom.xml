@@ -184,16 +184,22 @@
 				</executions>
 				<configuration>
 					<includes>
-						<include>${basedir}/src/main/resources/js/**/*.js</include>
+						<include>**/*.js</include>
 					</includes>
 					<!--<outputBasedir>${basedir}/target/jssanitized</outputBasedir>-->
-					<outputBasedir>jssanitized</outputBasedir>
+					<outputDir>jssanitized</outputDir>
+					<outputBasedir>${basedir}/target</outputBasedir>
+					<!--<preserveDir>true</preserveDir>-->
+					<basedir>${basedir}/src/main/resources/js</basedir>
 					<replacements>
 						<replacement>
 							<token>^#!.*$</token>
 							<value></value>
 						</replacement>
 					</replacements>
+					<regexFlags>
+						<regexFlag>MULTILINE</regexFlag>
+					</regexFlags>
 				</configuration>
 			</plugin>
 
@@ -224,6 +230,7 @@
 				</executions>
 
 				<configuration>
+
 					<languageVersion>170</languageVersion>
 
 					<optLevel>9</optLevel>
@@ -232,6 +239,9 @@
 
 					<outputDirectory>${basedir}/target/compiledjs</outputDirectory>
 
+					<!-- Sadly ECMAScript-262 spec section 12.9 scuppers us
+					 http://comments.gmane.org/gmane.comp.mozilla.devel.jseng.rhino/2450
+					-->
 				</configuration>
 			</plugin>
 		</plugins>
