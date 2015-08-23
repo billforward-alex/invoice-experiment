@@ -97,7 +97,7 @@
 
 							<!-- If you need to download Node/npm through a proxy: configure your Maven proxy settings in ~/.m2/settings.xml.
 							 This plugin will use the same proxy settings as Maven.-->
-							<!--<nodeDownloadRoot>http://nodejs.org/nodejs/dist/</nodeDownloadRoot>-->
+							<nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
 							<!--<npmDownloadRoot>http://npm.org/npm/-/</npmDownloadRoot>-->
 						</configuration>
 					</execution>
