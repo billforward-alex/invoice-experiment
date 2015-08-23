@@ -73,6 +73,12 @@
 		</dependency>
 
 
+		<dependency>
+			<!-- Dependency for Rhino compiler plugin-->
+			<groupId>org.mozilla</groupId>
+			<artifactId>rhino</artifactId>
+			<version>1.7R4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -84,6 +90,7 @@
 
 		<plugins>
 			<plugin>
+				<!-- Simply for installing node_modules so we don't have to check it in-->
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
 				<version>0.0.25</version>
@@ -134,6 +141,98 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<!--<plugin>-->
+				<!--<artifactId>maven-resources-plugin</artifactId>-->
+				<!--<version>2.7</version>-->
+				<!--<executions>-->
+					<!--<execution>-->
+						<!--<id>copy-resources</id>-->
+						<!--&lt;!&ndash; here the phase you need &ndash;&gt;-->
+						<!--<phase>validate</phase>-->
+						<!--<goals>-->
+							<!--<goal>copy-resources</goal>-->
+						<!--</goals>-->
+						<!--<configuration>-->
+							<!--<outputDirectory>${basedir}/target/jsonly</outputDirectory>-->
+							<!--<resources>-->
+								<!--<resource>-->
+									<!--<directory>src/main/resources/js</directory>-->
+									<!--<filtering>false</filtering>-->
+									<!--<includes>-->
+										<!--<include>**/*.js</include>-->
+									<!--</includes>-->
+								<!--</resource>-->
+							<!--</resources>-->
+						<!--</configuration>-->
+					<!--</execution>-->
+				<!--</executions>-->
+			<!--</plugin>-->
+
+			<plugin>
+				<groupId>com.google.code.maven-replacer-plugin</groupId>
+				<artifactId>replacer</artifactId>
+				<version>1.5.3</version>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>replace</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includes>
+						<include>${basedir}/src/main/resources/js/**/*.js</include>
+					</includes>
+					<!--<outputBasedir>${basedir}/target/jssanitized</outputBasedir>-->
+					<outputBasedir>jssanitized</outputBasedir>
+					<replacements>
+						<replacement>
+							<token>^#!.*$</token>
+							<value></value>
+						</replacement>
+					</replacements>
+				</configuration>
+			</plugin>
+
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-compiler-plugin</artifactId>-->
+				<!--<version>2.3.2</version>-->
+				<!--<configuration>-->
+					<!--<includes>-->
+						<!--<include>src/main/resources/js/**/*.js</include>-->
+					<!--</includes>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
+
+			<plugin>
+				<!-- Compiler of js -> .class-->
+				<groupId>de.skiptag</groupId>
+				<artifactId>rhino-maven-plugin</artifactId>
+				<version>1.0.3</version>
+
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+
+				<configuration>
+					<languageVersion>170</languageVersion>
+
+					<optLevel>9</optLevel>
+
+					<sourceDirectory>${basedir}/target/jssanitized</sourceDirectory>
+
+					<outputDirectory>${basedir}/target/compiledjs</outputDirectory>
+
+				</configuration>
 			</plugin>
 		</plugins>
 
