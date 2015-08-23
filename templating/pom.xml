@@ -11,9 +11,6 @@
 	<groupId>net.billforward</groupId>
 	<artifactId>templating</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<modules>
-		<module>../grunter</module>
-	</modules>
 
 	<packaging>pom</packaging>
 
@@ -32,6 +29,11 @@
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>net.billforward</groupId>
+			<artifactId>grunter</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>net.billforward</groupId>
 			<artifactId>shared</artifactId>
