@@ -23,35 +23,35 @@ public class App
     public void main() {
         System.out.println( "Hello World!" );
 
-        // The NodeEnvironment controls the environment for many scripts
-        NodeEnvironment env = new NodeEnvironment();
-
-        // Get current classloader
-        ClassLoader classLoader = this.getClass().getClassLoader();
-        String path = classLoader.getResource("js/index.js").getFile();
-
-        // Pass in the script file name, a File pointing to the actual script, and an Object[] containg "argv"
-        NodeScript script = null;
-        try {
-            script = env.createScript("index.js",
-                    new File(path), null);
-        } catch (NodeException e) {
-            e.printStackTrace();
-        }
-
-        // Wait for the script to complete
-        ScriptStatus status = null;
-        try {
-            status = script.execute().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (NodeException e) {
-            e.printStackTrace();
-        }
-
-        // Check the exit code
-        System.exit(status.getExitCode());
+//        // The NodeEnvironment controls the environment for many scripts
+//        NodeEnvironment env = new NodeEnvironment();
+//
+//        // Get current classloader
+//        ClassLoader classLoader = this.getClass().getClassLoader();
+//        String path = classLoader.getResource("js/index.js").getFile();
+//
+//        // Pass in the script file name, a File pointing to the actual script, and an Object[] containg "argv"
+//        NodeScript script = null;
+//        try {
+//            script = env.createScript("index.js",
+//                    new File(path), null);
+//        } catch (NodeException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Wait for the script to complete
+//        ScriptStatus status = null;
+//        try {
+//            status = script.execute().get();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        } catch (NodeException e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Check the exit code
+//        System.exit(status.getExitCode());
     }
 }
