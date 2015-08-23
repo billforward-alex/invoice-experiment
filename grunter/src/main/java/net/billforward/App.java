@@ -1,12 +1,10 @@
 package net.billforward;
 
-import io.apigee.trireme.core.NodeEnvironment;
-import io.apigee.trireme.core.NodeException;
-import io.apigee.trireme.core.NodeScript;
-import io.apigee.trireme.core.ScriptStatus;
-
-import java.io.File;
-import java.util.concurrent.ExecutionException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
 
 /**
  * Hello world!
@@ -23,35 +21,46 @@ public class App
     public void main() {
         System.out.println( "Hello World!" );
 
-        // The NodeEnvironment controls the environment for many scripts
-        NodeEnvironment env = new NodeEnvironment();
-
         // Get current classloader
         ClassLoader classLoader = this.getClass().getClassLoader();
-        String path = classLoader.getResource("js/index.js").getFile();
+        String node = classLoader.getResource("generated-resources/node").getFile();
+        String index = classLoader.getResource("js/index.js").getFile();
 
-        // Pass in the script file name, a File pointing to the actual script, and an Object[] containg "argv"
-        NodeScript script = null;
+        String[] command = {node, index};
+        System.out.printf("Running '%s'...\n",
+                Arrays.toString(command));
+
+        ProcessBuilder processBuilder = new ProcessBuilder(command);
+        Process process;
         try {
-            script = env.createScript("index.js",
-                    new File(path), null);
-        } catch (NodeException e) {
+            process = processBuilder.start();
+        } catch (IOException e) {
             e.printStackTrace();
+            return;
         }
 
-        // Wait for the script to complete
-        ScriptStatus status = null;
+        //Read out dir output
+        InputStream is = process.getInputStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
+        String line;
+        System.out.printf("Output of running '%s' is:\n",
+                Arrays.toString(command));
         try {
-            status = script.execute().get();
-        } catch (InterruptedException e) {
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (NodeException e) {
-            e.printStackTrace();
+        } finally {
+            //Wait to get exit value
+            try {
+                int exitValue = process.waitFor();
+                System.out.println("\n\nExit Value is " + exitValue);
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         }
-
-        // Check the exit code
-        System.exit(status.getExitCode());
     }
 }
