@@ -1,9 +1,6 @@
 package net.billforward;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 
 /**
@@ -14,11 +11,13 @@ public class App
 {
     public static void main( String[] args )
     {
-        App app = new App();
-        app.main();
-    }
+        File inputDir = new File("tmp");
 
-    public void main() {
-
+        Uncss uncss = new Uncss(inputDir);
+        try {
+            uncss.uncss();
+        } catch (UncssFailedException e) {
+            e.printStackTrace();
+        }
     }
 }

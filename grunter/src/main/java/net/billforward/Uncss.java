@@ -1,16 +1,61 @@
 package net.billforward;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * Created by birch on 23/08/2015.
  */
 public class Uncss {
-    public String uncss() throws UncssFailedException {
+    protected File inputDir;
+    public Uncss(File inputDir) {
+        this.inputDir = inputDir;
+    }
+
+    public File getInputDir() {
+        return inputDir;
+    }
+
+    public void setInputDir(File inputDir) {
+        this.inputDir = inputDir;
+    }
+
+    public String uncss(String string) throws UncssFailedException {
+        UUID unique = UUID.randomUUID();
+        String fileName = String.format("%s.txt", unique);
+        File file = new File(getInputDir(), fileName);
+        Path filePath = file.toPath();
+        try {
+            Files.createDirectories(filePath.getParent());
+            Files.createFile(filePath);
+        } catch (IOException e) {
+            UncssFailedException uncssFailedException = new UncssFailedException("Couldn't reserve temporary filepath for input");
+            uncssFailedException.setStackTrace(e.getStackTrace());
+            throw uncssFailedException;
+        }
+
+        PrintWriter writer;
+        try {
+            writer = new PrintWriter(file, "UTF-8");
+        } catch (FileNotFoundException e) {
+            UncssFailedException uncssFailedException = new UncssFailedException("Couldn't write generated text to file");
+            uncssFailedException.setStackTrace(e.getStackTrace());
+            throw uncssFailedException;
+        } catch (UnsupportedEncodingException e) {
+            UncssFailedException uncssFailedException = new UncssFailedException("Couldn't write generated text to file using specified encoding");
+            uncssFailedException.setStackTrace(e.getStackTrace());
+            throw uncssFailedException;
+        }
+        writer.print(string);
+        writer.close();
+
+        return uncss(file);
+    }
+    public String uncss(File file) throws UncssFailedException {
         System.out.println("Hello World!");
 
         // Get current classloader
@@ -26,7 +71,7 @@ public class Uncss {
             throw uncssFailedException;
         }
 
-        String[] command = {node, index};
+        String[] command = {node, index, file.getAbsolutePath()};
         System.out.printf("Running '%s'...\n",
                 Arrays.toString(command));
 
