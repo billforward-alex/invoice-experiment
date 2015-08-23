@@ -17,9 +17,6 @@
     <orderEntry type="library" name="Maven: org.mozilla:rhino:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: io.apigee.trireme:trireme-node12src:0.8.7" level="project" />
     <orderEntry type="library" name="Maven: io.apigee.trireme:trireme-node10src:0.8.7" level="project" />
-    <orderEntry type="library" name="Maven: io.apigee.trireme:trireme-npm:0.8.7" level="project" />
-    <orderEntry type="library" name="Maven: io.apigee.trireme:trireme-shell:0.8.7" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.2" level="project" />
     <orderEntry type="library" name="Maven: io.apigee.trireme:trireme-util:0.8.7" level="project" />
     <orderEntry type="library" name="Maven: io.apigee.trireme:rhino-compiler:0.8.7" level="project" />
     <orderEntry type="library" name="Maven: org.apache.maven:maven-plugin-api:3.0.3" level="project" />
