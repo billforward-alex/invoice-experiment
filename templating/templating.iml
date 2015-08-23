@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: net.billforward:grunter:1.0-SNAPSHOT" level="project" />
     <orderEntry type="module" module-name="shared" />
     <orderEntry type="library" name="Maven: org.clojure:clojure:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: hiccup:hiccup:1.0.5" level="project" />
