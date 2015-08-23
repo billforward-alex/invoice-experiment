@@ -26,7 +26,7 @@ public class Uncss {
 
     public String uncss(String string) throws UncssFailedException {
         UUID unique = UUID.randomUUID();
-        String fileName = String.format("%s.txt", unique);
+        String fileName = String.format("%s.html", unique);
         File file = new File(getInputDir(), fileName);
         Path filePath = file.toPath();
         try {
@@ -55,6 +55,7 @@ public class Uncss {
 
         return uncss(file);
     }
+
     public String uncss(File file) throws UncssFailedException {
         System.out.println("Hello World!");
 
